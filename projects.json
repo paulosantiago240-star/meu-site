@@ -1,0 +1,38 @@
+[
+  {
+    "title": "Analisador de Dados de Voo",
+    "short": "Dashboard para análise de telemetria de aeronaves.",
+    "description": "Projeto que coleta dados de telemetria em CSV, processa com Python (pandas) e apresenta visualizações interativas em D3.js/Chart.js. Inclui filtros por voo, altitude e tempo, além de exportação de relatórios.",
+    "link": "https://github.com/paulosantiago240-star/analisador-voo",
+    "image": "images/analisador-voo.png",
+    "tags": ["Python","D3","DataViz"],
+    "year": 2025
+  },
+  {
+    "title": "Simulador Aerodinâmico Básico",
+    "short": "Simulações 2D de fluxo ao redor de perfis de asa.",
+    "description": "Web app educativo que usa métodos numéricos simples para demonstrar campos de velocidade e linhas de corrente ao redor de perfis. Código em JavaScript com canvas e interface interativa para alterar ângulo de ataque e Reynolds.",
+    "link": "https://github.com/paulosantiago240-star/simulador-aerodinamica",
+    "image": "images/simulador-aero.png",
+    "tags": ["JavaScript","Canvas","Simulação"],
+    "year": 2024
+  },
+  {
+    "title": "Portfólio Interativo",
+    "short": "Site pessoal com projetos e contato.",
+    "description": "Implementação responsiva do portfólio com carregamento dinâmico de projetos, tema claro/escuro, animações ao rolar e formulário de contato integrado ao Formspree.",
+    "link": "https://seusite.example.com",
+    "image": "images/portfolio.png",
+    "tags": ["HTML","CSS","JavaScript"],
+    "year": 2026
+  },
+  {
+    "title": "Detector de Anomalias em Telemetria",
+    "short": "Pipeline para detecção automática de anomalias.",
+    "description": "Pipeline que recebe séries temporais de sensores, aplica técnicas estatísticas e modelos simples de ML para sinalizar leituras suspeitas. Inclui visualização e exportação de logs.",
+    "link": "https://github.com/paulosantiago240-star/anomalia-telemetria",
+    "image": "images/anomalia.png",
+    "tags": ["Machine Learning","Time Series","Python"],
+    "year": 2025
+  }
+]

@@ -1,5 +1,135 @@
+:root {
+    /* Core colors */
+    --bg: #f2f2f2;
+    --card: #ffffff;
+    --text: #111111;
+    --muted: #666666;
+    --accent: #0b5fff;
+
+    /* Layout & sizing */
+    --page-margin: 40px;
+    --container-width: 1000px;
+    --radius: 8px;
+
+    /* Effects */
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
+    --shadow-md: 0 6px 18px rgba(0,0,0,0.08);
+    --btn-hover: rgba(0,0,0,0.04);
+    --trans-fast: 150ms;
+    --trans-medium: 320ms;
+}
+
+[data-theme="dark"] {
+    --bg: #1f1f1f;
+    --card: #2a2a2a;
+    --text: #eeeeee;
+    --muted: #bbbbbb;
+    --accent: #58a6ff;
+    --btn-hover: rgba(255,255,255,0.06);
+}
+
+/* Base */
+html,body{height:100%;}
 body {
-    font-family: Arial;
-    margin: 40px;
-    background-color: #f2f2f2;
+    font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    margin: var(--page-margin);
+    background-color: var(--bg);
+    color: var(--text);
+    transition: background-color var(--trans-medium), color var(--trans-medium);
+    -webkit-font-smoothing:antialiased;
+}
+
+.container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 18px;
+}
+
+/* Header */
+.site-header { display:flex; align-items:center; justify-content:space-between; gap:1rem; }
+.site-header h1 { margin:0; font-size:2rem; }
+.lead { color:var(--muted); margin-top:.3rem; margin-bottom:1.25rem; }
+
+.theme-toggle {
+    background: transparent;
+    border: 1px solid rgba(0,0,0,0.06);
+    padding: 6px 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    color:var(--muted);
+    transition: transform var(--trans-fast), background var(--trans-fast), color var(--trans-fast);
+}
+.theme-toggle:hover { transform:translateY(-2px); }
+
+/* Projects grid */
+.projects-list { list-style:none; padding:0; margin:0; display:grid; gap:16px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+.project-item {
+    background:var(--card);
+    padding:16px;
+    border-radius:var(--radius);
+    box-shadow:var(--shadow-sm);
+    transition: transform var(--trans-fast), box-shadow var(--trans-fast);
+}
+.project-item:hover { transform:translateY(-6px); box-shadow:var(--shadow-md); }
+.project-item strong{ display:block; margin-bottom:6px; }
+.project-item .short{ color:var(--muted); margin:0 0 10px 0; font-size:.95rem; }
+.project-item .details{ background:var(--accent); color:white; border:none; padding:8px 10px; border-radius:8px; cursor:pointer; }
+
+/* Modal */
+.modal{ position:fixed; inset:0; display:flex; align-items:center; justify-content:center; z-index:1000; }
+.modal.hidden{ display:none; }
+.modal-backdrop{ position:absolute; inset:0; background:rgba(0,0,0,0.45); }
+.modal-body{ position:relative; background:var(--card); padding:20px; border-radius:12px; max-width:720px; width:92%; max-height:80vh; overflow:auto; z-index:1001; box-shadow:var(--shadow-md); }
+.modal-close{ position:absolute; right:10px; top:8px; background:transparent; border:none; font-size:20px; cursor:pointer; color:var(--muted); }
+
+/* Contact buttons */
+.contact-buttons{ display:flex; gap:12px; align-items:center; margin-top:8px; flex-wrap:wrap; }
+.contact-btn{ width:56px; height:56px; display:grid; place-items:center; padding:0; border-radius:50%; text-decoration:none; color:var(--muted); background:var(--card); border:none; box-shadow:var(--shadow-sm); transition: transform var(--trans-fast), box-shadow var(--trans-fast), background var(--trans-fast), color var(--trans-fast); }
+.contact-btn:hover{ transform:translateY(-6px); box-shadow:var(--shadow-md); background:var(--btn-hover); color:var(--text); }
+.contact-btn:focus{ outline:2px solid color-mix(in srgb, var(--accent) 30%, transparent); outline-offset:4px; }
+.icon-svg{ width:20px; height:20px; display:block; }
+.icon-svg *{ fill:currentColor; stroke:none; }
+.contact-note{ margin-top:10px; color:var(--muted); }
+
+/* Modal: project tabs */
+/* removed project-modal tab styles (reverted to simple modal) */
+
+/* Timeline */
+.timeline-section{ margin-top:22px; }
+.timeline-title{ margin:0 0 10px 0; font-size:1.05rem; }
+.timeline{ list-style:none; padding:0; margin:0; position:relative; }
+.timeline:before{ content:''; position:absolute; left:34px; top:0; bottom:0; width:2px; background:color-mix(in srgb, var(--text) 6%, transparent); border-radius:2px; }
+.timeline-item{ position:relative; padding:14px 12px 14px 84px; margin-bottom:18px; }
+.timeline-item:last-child{ margin-bottom:0; }
+.timeline-marker{ position:absolute; left:22px; top:18px; width:20px; height:20px; background:var(--card); border-radius:50%; border:3px solid var(--accent); box-shadow:0 2px 6px rgba(0,0,0,0.06); display:grid; place-items:center; transition: transform var(--trans-fast), box-shadow var(--trans-fast); }
+.timeline-marker::after{ content:''; position:absolute; width:30px; height:30px; border-radius:50%; left:50%; top:50%; transform:translate(-50%,-50%); opacity:0; transition:opacity var(--trans-medium); }
+.timeline-item:hover .timeline-marker{ transform:translateY(-4px); box-shadow:var(--shadow-md); }
+.t-time{ display:block; position:absolute; left:0; top:10px; width:60px; font-weight:700; color:var(--muted); }
+.t-body h4{ margin:0 0 6px 0; font-size:1rem; }
+.t-body p{ margin:0; color:var(--muted); font-size:.95rem; line-height:1.4; }
+
+/* Reveal animations */
+.pre-animate{ opacity:0; transform:translateY(12px); transition: opacity .45s ease, transform .45s ease; }
+.in-view{ opacity:1; transform:none; }
+
+/* Accessibility: respect reduced motion */
+@media (prefers-reduced-motion: reduce){
+    .pre-animate, .project-item, .contact-btn, .timeline-marker{ transition:none !important; animation:none !important; }
+}
+
+/* Responsive tweaks */
+@media (max-width:800px){
+    body{ margin:24px; }
+    .timeline:before{ left:28px; }
+    .timeline-item{ padding-left:68px; }
+    .t-time{ width:52px; font-size:.95rem; }
+}
+
+@media (max-width:600px){
+    body{ margin:18px; }
+    .projects-list{ grid-template-columns: 1fr; }
+    .site-header h1{ font-size:1.4rem; }
+    .timeline:before{ left:18px; }
+    .timeline-item{ padding-left:48px; }
+    .t-time{ left:0; top:8px; font-size:.9rem; }
 }

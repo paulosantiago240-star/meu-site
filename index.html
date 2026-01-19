@@ -4,16 +4,131 @@
     <meta charset="UTF-8">
     <title>Portfólio - Luis Paulo</title>
     <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
 </head>
 <body>
-    <h1>Olá, eu sou Luis Paulo</h1>
-    <p>Estudante de Engenharia Aeronáutica e entusiasta de análise de dados.</p>
+    <header class="site-header">
+        <h1>Olá, eu sou Luis Paulo</h1>
+        <button id="theme-toggle" aria-pressed="false" class="theme-toggle">🌙</button>
+    </header>
 
-    <h2>Projetos</h2>
-    <ul>
-        <li>Projeto 1</li>
-        <li>Projeto 2</li>
-    </ul>
+    <main class="container">
+        <p class="lead">Estudante de Engenharia Aeronáutica e entusiasta de análise de dados.</p>
+
+        <!-- Timeline profissional (currículo em linha do tempo) -->
+        <section class="timeline-section" data-animate>
+            <h3 class="timeline-title">Linha do tempo profissional</h3>
+            <ol class="timeline">
+                <li class="timeline-item">
+                    <time class="t-time">2026 —</time>
+                    <div class="t-body">
+                        <h4>Estudante de Engenharia Aeronáutica (conclusão prevista)</h4>
+                        <p>Atuação em projetos acadêmicos em aerodinâmica e análise de sinais; foco em processamento de telemetria e visualização de dados.</p>
+                    </div>
+                </li>
+
+                <li class="timeline-item">
+                    <time class="t-time">2025 —</time>
+                    <div class="t-body">
+                        <h4>Projeto: Analisador de Dados de Voo</h4>
+                        <p>Desenvolvimento de dashboard para análise de telemetria (pandas, D3/Chart.js), filtros e geração de relatórios.</p>
+                    </div>
+                </li>
+
+                <li class="timeline-item">
+                    <time class="t-time">2024 —</time>
+                    <div class="t-body">
+                        <h4>Simulador Aerodinâmico Básico</h4>
+                        <p>Criação de simulação 2D em JavaScript (canvas) para demonstração de fluxo e linhas de corrente; trabalho focado em ensino e visualização.</p>
+                    </div>
+                </li>
+
+                <li class="timeline-item">
+                    <time class="t-time">2022 —</time>
+                    <div class="t-body">
+                        <h4>Estágio / Iniciação</h4>
+                        <p>Experiência inicial em coleta de dados e scripts de automação; introdução a pipelines de processamento e limpeza de dados.</p>
+                    </div>
+                </li>
+            </ol>
+        </section>
+
+                <section id="projects" class="section" aria-labelledby="projects-title" data-animate>
+                        <h2 id="projects-title">Projetos</h2>
+                        <ul id="projects-list" class="projects-list">
+                                <li>Carregando projetos…</li>
+                        </ul>
+                </section>
+
+                <!-- Embeded projects.json to support file:// usage and faster load -->
+                <script id="projects-data" type="application/json">
+[
+    {
+        "title": "Analisador de Dados de Voo",
+        "short": "Dashboard para análise de telemetria de aeronaves.",
+        "description": "Projeto que coleta dados de telemetria em CSV, processa com Python (pandas) e apresenta visualizações interativas em D3.js/Chart.js. Inclui filtros por voo, altitude e tempo, além de exportação de relatórios.",
+        "link": "https://github.com/paulosantiago240-star/analisador-voo",
+        "image": "images/analisador-voo.png",
+        "tags": ["Python","D3","DataViz"],
+        "year": 2025
+    },
+    {
+        "title": "Simulador Aerodinâmico Básico",
+        "short": "Simulações 2D de fluxo ao redor de perfis de asa.",
+        "description": "Web app educativo que usa métodos numéricos simples para demonstrar campos de velocidade e linhas de corrente ao redor de perfis. Código em JavaScript com canvas e interface interativa para alterar ângulo de ataque e Reynolds.",
+        "link": "https://github.com/paulosantiago240-star/simulador-aerodinamica",
+        "image": "images/simulador-aero.png",
+        "tags": ["JavaScript","Canvas","Simulação"],
+        "year": 2024
+    },
+    {
+        "title": "Portfólio Interativo",
+        "short": "Site pessoal com projetos e contato.",
+        "description": "Implementação responsiva do portfólio com carregamento dinâmico de projetos, tema claro/escuro, animações ao rolar e formulário de contato integrado ao Formspree.",
+        "link": "https://seusite.example.com",
+        "image": "images/portfolio.png",
+        "tags": ["HTML","CSS","JavaScript"],
+        "year": 2026
+    },
+    {
+        "title": "Detector de Anomalias em Telemetria",
+        "short": "Pipeline para detecção automática de anomalias.",
+        "description": "Pipeline que recebe séries temporais de sensores, aplica técnicas estatísticas e modelos simples de ML para sinalizar leituras suspeitas. Inclui visualização e exportação de logs.",
+        "link": "https://github.com/paulosantiago240-star/anomalia-telemetria",
+        "image": "images/anomalia.png",
+        "tags": ["Machine Learning","Time Series","Python"],
+        "year": 2025
+    }
+]
+                </script>
+
+        <section id="contact" class="section" data-animate>
+            <h2>Contato</h2>
+            <div class="contact-buttons">
+                                <a class="contact-btn whatsapp" href="https://wa.me/5567992562363?text=Ol%C3%A1%20Luis,%20gostaria%20de%20conversar%20sobre%20seus%20projetos." target="_blank" rel="noopener" title="WhatsApp" aria-label="WhatsApp">
+                                        <!-- inline WhatsApp SVG -->
+                                        <svg class="icon-svg" viewBox="0 0 24 24" aria-hidden>
+                                            <path d="M20.52 3.48A11.88 11.88 0 0012 .1 11.94 11.94 0 001.2 9.6c0 2.12.55 4.18 1.6 6L3 22l6-1.75A11.9 11.9 0 0012 22c6.6 0 11.98-5.38 11.98-12 0-3.2-1.25-6.2-3.46-8.52zM17.2 14.1c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.8.9-.9 1.1-.1.2-.2.3-.5.1-.8-.4-2.1-1.3-3.5-2.3-1.3-1-1.3-1.7-.3-2.2.4-.2 1.3-.5 1.6-.6.4-.1.6-.2.9.1.3.3 1.1 1.2 1.9 1.8.8.7 1.6.9 2.4.7.3-.1.9-.4 1.1-.6.2-.2.4-.2.7 0 .3.1.9.4 1 .5.1.1.1.4 0 .6-.1.2-.9.8-1.2.9z"/>
+                                        </svg>
+                                </a>
+
+                                <a class="contact-btn linkedin" href="https://www.linkedin.com/in/luis-paulo-loubet-557712179" target="_blank" rel="noopener" title="LinkedIn" aria-label="LinkedIn">
+                                        <!-- inline LinkedIn SVG -->
+                                        <svg class="icon-svg" viewBox="0 0 24 24" aria-hidden>
+                                            <path d="M20.447 20.452H17.24v-5.569c0-1.328-.026-3.036-1.849-3.036-1.85 0-2.134 1.445-2.134 2.938v5.667H9.028V9h3.064v1.561h.044c.427-.81 1.47-1.664 3.023-1.664 3.232 0 3.828 2.127 3.828 4.892v6.664zM5.337 7.433a1.78 1.78 0 11.001-3.561 1.78 1.78 0 010 3.561zM6.994 20.452H3.679V9h3.315v11.452z"/>
+                                        </svg>
+                                </a>
+
+                                <a class="contact-btn email" href="mailto:luispauloloubet@usp.com.br" title="Enviar email" aria-label="Enviar email">
+                                        <!-- inline email SVG -->
+                                        <svg class="icon-svg" viewBox="0 0 24 24" aria-hidden>
+                                            <path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                                        </svg>
+                                </a>
+            </div>
+            <p class="contact-note">Ou envie diretamente: <a href="mailto:paulosantiago240@gmail.com">paulosantiago240@gmail.com</a></p>
+        </section>
+    </main>
 
     <script src="script.js"></script>
 </body>
